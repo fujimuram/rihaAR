@@ -61,7 +61,8 @@ int main(int argc, char **argv) {
 
     StreamingParameters stream_params;
     stream_params.codec = STREAMING_CODEC::H265;
-    stream_params.bitrate = 6000;
+    //stream_params.bitrate = 6000;
+    stream_params.bitrate = 15000;
     stream_params.adaptative_bitrate = true;
     stream_params.gop_size = 0;
     stream_params.chunk_size = 8000;
