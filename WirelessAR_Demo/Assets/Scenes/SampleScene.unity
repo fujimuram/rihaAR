@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 424398501}
   - component: {fileID: 424398500}
   - component: {fileID: 424398504}
+  - component: {fileID: 424398505}
   m_Layer: 0
   m_Name: Person
   m_TagString: Body
@@ -229,6 +230,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 481780386}
+--- !u!54 &424398505
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424398499}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &481780384
 GameObject:
   m_ObjectHideFlags: 0

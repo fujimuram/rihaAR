@@ -28,8 +28,14 @@ public class DamageEffecter : MonoBehaviour
 			this.img.color = Color.Lerp(this.img.color, Color.clear, Time.deltaTime);
 		}
     }
- 
-    public virtual void Damage(int damage)
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Hit");
+        this.Damage();
+    }
+
+    public virtual void Damage()
     {
         // 画面を赤塗りにする
         this.img.color = new Color(0.5f, 0f, 0f, 0.5f);
