@@ -20,7 +20,7 @@ public class DamageEffecter : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
 		{
-			this.img.color = new Color(0.5f, 0f, 0f, 0.5f);
+			// do nothing...
 		}
 		else
 		{
@@ -29,10 +29,14 @@ public class DamageEffecter : MonoBehaviour
 		}
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Hit");
-        this.Damage();
+        // 何かしらの障害物とヒットしたとき
+        if (other.gameObject.tag == "Obstacle")
+        {
+            Debug.Log("Hit");
+            this.Damage();
+        }
     }
 
     public virtual void Damage()
