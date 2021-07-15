@@ -20,7 +20,7 @@ public class DamageEffecter : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
 		{
-			this.img.color = new Color(0.5f, 0f, 0f, 0.5f);
+			// do nothing...
 		}
 		else
 		{
@@ -28,8 +28,18 @@ public class DamageEffecter : MonoBehaviour
 			this.img.color = Color.Lerp(this.img.color, Color.clear, Time.deltaTime);
 		}
     }
- 
-    public virtual void Damage(int damage)
+
+    void OnCollisionEnter(Collision other)
+    {
+        // 何かしらの障害物とヒットしたとき
+        if (other.gameObject.tag == "Obstacle")
+        {
+            Debug.Log("Hit");
+            this.Damage();
+        }
+    }
+
+    public virtual void Damage()
     {
         // 画面を赤塗りにする
         this.img.color = new Color(0.5f, 0f, 0f, 0.5f);
