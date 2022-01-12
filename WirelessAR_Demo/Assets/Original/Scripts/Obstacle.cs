@@ -20,10 +20,13 @@ public class Obstacle : MonoBehaviour
     // 障害物の向き
     public Vector3 direction = Vector3.back;
 
+    // 障害物の色
+    public Color color = Color.white;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.GetComponent<Renderer>().material.color = this.color;
     }
 
     // Update is called once per frame
