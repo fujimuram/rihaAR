@@ -42,11 +42,11 @@ public class DemoSettings : MonoBehaviour
     public float Distdata { get; private set; }
 
     /// <summary>
-    /// 出現する色フラグ
+    /// 出現させるターゲットの色
     /// </summary>
     [field: SerializeField]
-    public List<bool> ColorFlags { get; set; }
-        = new List<bool>() { true, true };
+    public Serialize.ColorTable Colors { get; set; }
+        
 
     #endregion
 

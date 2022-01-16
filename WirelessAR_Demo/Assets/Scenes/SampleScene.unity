@@ -239,6 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 113069482}
   - component: {fileID: 113069483}
+  - component: {fileID: 113069484}
   m_Layer: 0
   m_Name: SensorB
   m_TagString: Untagged
@@ -273,6 +274,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 0.5, z: 0.01}
   m_Center: {x: 0, y: -1, z: -0.15}
+--- !u!114 &113069484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113069481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ace5f55123ad9043a462e8f0ca25856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _sensorA: {fileID: 0}
+  _settings: {fileID: 0}
 --- !u!1 &118343568
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,6 +2033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1129057378}
   - component: {fileID: 1129057377}
+  - component: {fileID: 1129057379}
   m_Layer: 0
   m_Name: SensorA
   m_TagString: Untagged
@@ -2051,6 +2068,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1129057379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129057376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3d65c614383a0418da5bba54abb3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sensorB: {fileID: 0}
+  _settings: {fileID: 1981522840}
 --- !u!1 &1141816424
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,6 +2706,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1352114948813630, guid: e13ee7e0790c7d243b7aa67fe604acac, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1603769914748404, guid: e13ee7e0790c7d243b7aa67fe604acac, type: 3}
       propertyPath: m_Name
       value: ZED_Rig_Stereo
@@ -3553,8 +3588,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 30
-  <Distance>k__BackingField: 4
-  <ColorFlags>k__BackingField: 0101
+  _distance: 4
+  <Colors>k__BackingField:
+    list:
+    - Key: {r: 1, g: 0, b: 0, a: 0}
+      Value: 1
+    - Key: {r: 0, g: 0, b: 1, a: 0}
+      Value: 1
   <OrbitDegree>k__BackingField: 0
   <IsRandom>k__BackingField: 0
   <MinOrbitDegree>k__BackingField: -45
