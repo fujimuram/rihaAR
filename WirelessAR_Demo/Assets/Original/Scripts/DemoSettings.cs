@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class DemoSettings : MonoBehaviour
 {
     // MEMO: インスペクタ上の値（.yamlに保存される）が優先されることに注意！
-    // MEMO: 2019.x以下ではバッキングフィールドの名前がインスペクタに表示される
+    // MEMO: 2019.x以下では自動実装のpropはバッキングフィールドの名前がインスペクタに表示される
 
     #region Primary Config Params
     [field: Header("Primary Config Params")]
@@ -14,13 +18,28 @@ public class DemoSettings : MonoBehaviour
     /// 障害物の速度
     /// </summary>
     [field: SerializeField]
-    public float Speed { get ; set; } = 30f;
+    public float Speed { get; set; } = 30f;
 
     /// <summary>
     /// 総歩行距離
     /// </summary>
-    [field: SerializeField]
-    public int Distance { get; set; } = 4;
+    [SerializeField]
+    private int _distance = 4;
+    public int Distance 
+    { 
+        get => _distance;
+        set
+        {
+            _distance = value;
+            this.Distdata = 4.0f + 16.0f * value;
+            Debug.Log("Distance have changed!");
+            Debug.Log("Dist data: " + this.Distdata);
+        }
+    }
+    /// <summary>
+    /// 実際の歩行距離（？）
+    /// </summary>
+    public float Distdata { get; private set; }
 
     /// <summary>
     /// 出現する色フラグ
@@ -73,15 +92,39 @@ public class DemoSettings : MonoBehaviour
     #endregion
 
 
+    /// <summary>
+    /// Setterを強制使用させる
+    /// インスペクタから変更されたとき, UnityのSetterが機能しないため
+    /// </summary>
+    [CustomEditor(typeof(DemoSettings))]
+    public class CustomInspector : Editor
+    {
+        public override void OnInspectorGUI () 
+        {
+            base.OnInspectorGUI();
+        
+            //!< ボタンを押したタイミングでSetterを反映させる
+            if (GUILayout.Button("Use setters/getters"))
+            {
+                if(target.GetType() == typeof(DemoSettings))
+                {
+                    DemoSettings getterSetter = (DemoSettings)target;
+                    getterSetter.Distance = getterSetter.Distance;
+                }
+            }
+        }
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        // this.Distance = 25;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // var a = this.Speed;
+
     }
 }
