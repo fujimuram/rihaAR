@@ -10,6 +10,7 @@ public class Target : MonoBehaviour
     Transform _transform;
     float _vx;
     float _vz;
+    float _del_z = 3f; // 物体を削除する距離
 
 
     void Awake()
@@ -45,8 +46,9 @@ public class Target : MonoBehaviour
         _transform.Translate(Time.deltaTime * _vx, 0f, Time.deltaTime * _vz);
 
         // 十分にターゲットが通り過ぎてしまったら
-        if ((_vx > 0 && _transform.localPosition.x >= 2) ||
-            (_vx <= 0 && _transform.localPosition.x <= -2))
+        // if ((_vx > 0 && _transform.localPosition.x >= 2) ||
+        //     (_vx <= 0 && _transform.localPosition.x <= -2))
+        if (_transform.localPosition.z < _sensorB.transform.localPosition.z - _del_z)
         {
             // オブジェクトを無効化
             this.gameObject.SetActive(false);
