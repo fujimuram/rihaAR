@@ -10,7 +10,7 @@ public class Target : MonoBehaviour
     Transform _transform;
     float _vx;
     float _vz;
-    float _del_z = 3f; // 物体を削除する距離
+    float _del_z = 5f; // 物体を削除する距離
 
 
     void Awake()
