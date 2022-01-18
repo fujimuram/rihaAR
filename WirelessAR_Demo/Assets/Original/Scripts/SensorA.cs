@@ -19,6 +19,7 @@ public class SensorA : MonoBehaviour
 
 
     [SerializeField] DemoSettings _settings;
+    [SerializeField] GameObject _msg_box;
     
     Vector3 _init_pos;
     Vector3 _next_pos;
@@ -48,7 +49,11 @@ public class SensorA : MonoBehaviour
         {
             if (this.transform.localPosition.z > _settings.Distdata)
             {
-                _fin = true;
+                if (!_fin)
+                {
+                    _msg_box.SetActive(true);
+                    _fin = true;
+                }
             }
             else
             {
