@@ -286,9 +286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ace5f55123ad9043a462e8f0ca25856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _sensorA: {fileID: 0}
-  _settings: {fileID: 0}
+  _target: {fileID: 1371375972}
+  _sensorA: {fileID: 1129057379}
+  _settings: {fileID: 1981522840}
 --- !u!1 &118343568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,6 +1211,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37ba10a26a648144fa2390c8adfb2c8a, type: 3}
+--- !u!1 &644640081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 644640083}
+  - component: {fileID: 644640082}
+  m_Layer: 0
+  m_Name: SceneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &644640082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644640081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef795650854620a44921e8024d3f18de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 1371375972}
+  _camera: {fileID: 1472536871}
+  _isForceForward: 0
+  _speed: 0.01
+--- !u!4 &644640083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644640081}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,7 +2127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3d65c614383a0418da5bba54abb3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sensorB: {fileID: 0}
   _settings: {fileID: 1981522840}
 --- !u!1 &1141816424
 GameObject:
@@ -2569,13 +2615,14 @@ GameObject:
   - component: {fileID: 1371375974}
   - component: {fileID: 1371375973}
   - component: {fileID: 1371375977}
+  - component: {fileID: 1371375978}
   m_Layer: 0
   m_Name: Target
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1371375973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2666,6 +2713,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1371375978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371375972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d234d5135ced1b443b210a49a377087a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sensorB: {fileID: 113069484}
 --- !u!1 &1455035914
 GameObject:
   m_ObjectHideFlags: 0
@@ -3213,8 +3273,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.7, y: 2, z: 0.3}
+  m_Center: {x: 0, y: -1, z: 0.15}
 --- !u!1 &1706361871
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,6 +3759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 30
   _distance: 4
+  _distdata: 0
   <Colors>k__BackingField:
     list:
     - Key: {r: 1, g: 0, b: 0, a: 0}

@@ -39,7 +39,13 @@ public class DemoSettings : MonoBehaviour
     /// <summary>
     /// 実際の歩行距離（？）
     /// </summary>
-    public float Distdata { get; private set; }
+    [SerializeField, NonEditable]
+    private float _distdata;
+    public float Distdata 
+    {
+        get => _distdata;
+        private set => _distdata = value;
+    }
 
     /// <summary>
     /// 出現させるターゲットの色
@@ -119,7 +125,8 @@ public class DemoSettings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // this.Distance = 25;
+        // MEMO: 初期化時にセッター機能しないためあらためて初期化
+        this.Distance = this.Distance;
     }
 
     // Update is called once per frame

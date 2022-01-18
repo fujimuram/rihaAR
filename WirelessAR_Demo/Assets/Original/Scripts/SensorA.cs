@@ -18,7 +18,6 @@ public class SensorA : MonoBehaviour
     public float Duration { get; private set; }
 
 
-    [SerializeField] SensorB _sensorB;
     [SerializeField] DemoSettings _settings;
     
     Vector3 _init_pos;
