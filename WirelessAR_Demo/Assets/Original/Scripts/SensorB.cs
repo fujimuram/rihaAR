@@ -78,7 +78,8 @@ public class SensorB : MonoBehaviour
                     }
                 }
 
-                // 距離（？なんで適当な値なのか）
+                // 距離
+                // MEMO: センサーBから1~2mの位置にランダムで
                 this.Distance = Random.Range(1.0f,2.0f);
                 
                 Debug.Log(angle + " , " + color + " , " + this.Distance);
