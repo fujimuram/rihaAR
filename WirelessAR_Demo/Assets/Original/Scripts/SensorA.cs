@@ -47,10 +47,12 @@ public class SensorA : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            // 総歩行距離歩いたか
             if (this.transform.localPosition.z > _settings.Distdata)
             {
                 if (!_fin)
                 {
+                    // メッセージボックスを正面に表示し終了
                     _msg_box.SetActive(true);
                     _fin = true;
                 }

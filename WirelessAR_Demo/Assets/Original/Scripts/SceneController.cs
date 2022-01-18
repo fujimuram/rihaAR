@@ -9,6 +9,12 @@ public class SceneController : MonoBehaviour
     /// /// </summary>
     [SerializeField] GameObject _target;
 
+    /// <summary>
+    /// 衝突回数データ群
+    /// </summary>
+    private CollisionData _datas;
+    public CollisionData CollisionDatas => _datas;
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +22,8 @@ public class SceneController : MonoBehaviour
         // 初期値は非表示
         // Enable, Disableで制御
         _target.SetActive(false);
+
+        // TODO: 衝突データの復元など...
     }
 
     // Update is called once per frame
