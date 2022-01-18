@@ -97,6 +97,7 @@ public class SensorB : MonoBehaviour
         
                 // ターゲットを有効化
                 _target.SetActive(true);
+                _target.GetComponent<Target>().SetColor(color.Value);
 
                 // //count
                 // if(angle<=0)
