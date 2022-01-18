@@ -39,5 +39,13 @@ public class SceneController : MonoBehaviour
         {
             _camera.transform.Translate(0f, 0f, _speed);
         }
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+            _camera.transform.Translate(-_speed * 2, 0f, 0f);
+        }
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            _camera.transform.Translate(_speed * 2, 0f, 0f);
+        }
     }
 }
