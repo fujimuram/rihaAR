@@ -73,7 +73,7 @@ public class SensorB : MonoBehaviour
 
                     foreach (var pair in table)
                     {
-                        if (i == rand && pair.Value == true)
+                        if (i++ == rand && pair.Value == true)
                             color = pair.Key;
                     }
                 }
@@ -85,14 +85,15 @@ public class SensorB : MonoBehaviour
 
 
                 // ターゲットの位置と速度を決定
-                this.VX=_vdata*Mathf.Sin(angle*Mathf.Deg2Rad)*_mag;
-                this.X=this.Distance*this.VX*_sensorA.Duration;
-                this.VZ=_vdata*Mathf.Cos(angle*Mathf.Deg2Rad)*_mag;
-                this.Z=this.transform.localPosition.z+this.Distance+this.Distance*this.VZ*_sensorA.Duration;
+                this.VX = _vdata * Mathf.Sin(angle * Mathf.Deg2Rad) * _mag;
+                this.X = this.Distance * this.VX * _sensorA.Duration;
+                this.VZ = _vdata * Mathf.Cos(angle * Mathf.Deg2Rad) * _mag;
+                this.Z = this.transform.localPosition.z + this.Distance +
+                            this.Distance * this.VZ * _sensorA.Duration;
 
                 // センサーを動かす
-                _next_pos.z+=this.Distance+1;
-                this.transform.localPosition=_next_pos;
+                _next_pos.z += this.Distance + 1;
+                this.transform.localPosition = _next_pos;
                 _sensorA.Move(this.Distance);
         
                 // ターゲットを有効化
