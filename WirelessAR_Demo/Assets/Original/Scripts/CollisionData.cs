@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using System.Text;
 
 /// <summary>
 /// 方向
@@ -108,15 +107,16 @@ public class CollisionData
     /// <summary>
     /// 指定ファイルへデータを書き込む
     /// </summary>
-    /// <param name="path">ファイルパス</param>
-    public void Write(string path, bool append = false, string encode = "UTF-8")
+    /// <param name="filename">ファイル名</param>
+    public bool Write(string filename, bool append = false)
     {
-        using (StreamWriter sw = new StreamWriter(path, append, Encoding.GetEncoding(encode)))
+        var serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<(HitData left, HitData right)>));
+        using (var sw = new StreamWriter(filename, append, new System.Text.UTF8Encoding(false)))
         {
-            // foreach (string line in lines)
-            // {
-            //     sw.WriteLine(line);
-            // }
+            // シリアル化
+            serializer.Serialize(sw, _data);
         }
+
+        return true;
     }
 }
