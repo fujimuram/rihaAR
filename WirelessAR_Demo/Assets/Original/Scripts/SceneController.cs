@@ -35,10 +35,4 @@ public class SceneController : MonoBehaviour
         // 衝突データ初期化
         _datas = new CollisionData(kind_num);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        var a = 2;
-    }
 }

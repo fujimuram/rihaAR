@@ -2183,6 +2183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings: {fileID: 1981522840}
   _msg_box: {fileID: 812647510}
+  _target: {fileID: 1371375972}
 --- !u!1 &1141816424
 GameObject:
   m_ObjectHideFlags: 0
@@ -3119,7 +3120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _img: {fileID: 481780386}
   <IsForceForward>k__BackingField: 0
-  <Speed>k__BackingField: 0.01
+  <Speed>k__BackingField: 0.008
   _scene: {fileID: 644640082}
 --- !u!65 &1472536874
 BoxCollider:

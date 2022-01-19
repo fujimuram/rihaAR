@@ -57,9 +57,9 @@ public class Target : MonoBehaviour
         _transform.Translate(Time.deltaTime * _vx, 0f, Time.deltaTime * _vz);
 
         // 十分にターゲットが通り過ぎてしまったら
-        // if ((_vx > 0 && _transform.localPosition.x >= 2) ||
-        //     (_vx <= 0 && _transform.localPosition.x <= -2))
-        if (_transform.localPosition.z < _sensorB.transform.localPosition.z - _del_z)
+        if ((_vx > 0 && _transform.localPosition.x >= 2) ||
+            (_vx <= 0 && _transform.localPosition.x <= -2))
+        // if (_transform.localPosition.z < _sensorB.transform.localPosition.z - _del_z)
         {
             // オブジェクトを無効化
             this.gameObject.SetActive(false);
