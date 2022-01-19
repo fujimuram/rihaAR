@@ -20,6 +20,7 @@ public class SensorA : MonoBehaviour
 
     [SerializeField] DemoSettings _settings;
     [SerializeField] GameObject _msg_box;
+    [SerializeField] GameObject _target;
     
     Vector3 _init_pos;
     Vector3 _next_pos;
@@ -47,16 +48,20 @@ public class SensorA : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            // 総歩行距離歩いたか
             if (this.transform.localPosition.z > _settings.Distdata)
             {
                 if (!_fin)
                 {
+                    // メッセージボックスを正面に表示し終了
                     _msg_box.SetActive(true);
                     _fin = true;
                 }
             }
             else
             {
+                _target.SetActive(false);
+
                 // 歩行開始とみなす
                 this.IsWalking = true;
                 this.Duration = 0f;

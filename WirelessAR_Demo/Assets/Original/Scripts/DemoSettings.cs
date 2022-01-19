@@ -97,6 +97,13 @@ public class DemoSettings : MonoBehaviour
 
     #endregion
 
+    /// <summary>
+    /// シーン制御（適当実装）
+    /// </summary>
+    [SerializeField] 
+    SceneController _scene;
+    public SceneController SceneController => _scene;
+
 
     /// <summary>
     /// Setterを強制使用させる
@@ -105,6 +112,11 @@ public class DemoSettings : MonoBehaviour
     [CustomEditor(typeof(DemoSettings))]
     public class CustomInspector : Editor
     {
+        /// <summary>
+        /// 衝突データ保存ファイル名
+        /// </summary>
+        string _filename = @"collision_datas.xml";
+
         public override void OnInspectorGUI () 
         {
             base.OnInspectorGUI();
@@ -118,6 +130,14 @@ public class DemoSettings : MonoBehaviour
                     getterSetter.Distance = getterSetter.Distance;
                 }
             }
+
+            if (GUILayout.Button("Save to file"))
+            {
+                //!< 衝突データを保存する
+                if ((target as DemoSettings).SceneController.CollisionDatas.Write(_filename))
+                    Debug.Log("Data saved!");
+            }
+
         }
     }
 
@@ -127,6 +147,9 @@ public class DemoSettings : MonoBehaviour
     {
         // MEMO: 初期化時にセッター機能しないためあらためて初期化
         this.Distance = this.Distance;
+
+        // ターゲット数を設定
+        _scene.SetTargetNum(this.Colors.GetTable().Count);
     }
 
     // Update is called once per frame
