@@ -19,6 +19,11 @@ public class SensorB : MonoBehaviour
     /// </summary>
     [SerializeField] DemoSettings _settings;
 
+    /// <summary>
+    /// シーン制御（適当実装）
+    /// </summary>
+    [SerializeField] SceneController _scene;
+
     Vector3 _init_pos;
     Vector3 _next_pos;
 
@@ -65,15 +70,16 @@ public class SensorB : MonoBehaviour
                 // NOTE: 煩雑なのでいつか書き換え
                 Color? color = null;
                 var table = _settings.Colors.GetTable();
+                int color_id = 0;
 
                 while (color == null)
                 {
-                    var rand = Random.Range(0, table.Count);
+                    color_id = Random.Range(0, table.Count);
                     int i = 0;
 
                     foreach (var pair in table)
                     {
-                        if (i++ == rand && pair.Value == true)
+                        if (i++ == color_id && pair.Value == true)
                             color = pair.Key;
                     }
                 }
@@ -101,13 +107,10 @@ public class SensorB : MonoBehaviour
                 _target.SetActive(true);
                 _target.GetComponent<Target>().SetColor(color.Value);
 
-                // //count
-                // if(angle<=0)
-                // {discrim=color*4;}
-                // else
-                // {discrim=color*4+2;}
-                // fw.Count(discrim);
-                
+                // 出現情報を格納
+                _scene.CollisionDatas.CountAppear(
+                    color_id,
+                    angle <= 0 ? Direction.Left : Direction.Right);
             }
         }
     }

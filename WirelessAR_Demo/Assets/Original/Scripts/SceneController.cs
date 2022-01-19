@@ -26,9 +26,19 @@ public class SceneController : MonoBehaviour
         // TODO: 衝突データの復元など...
     }
 
+    /// <summary>
+    /// ターゲット数をもとに設定を行う
+    /// </summary>
+    /// <param name="kind_num"></param>
+    public void SetTargetNum(int kind_num)
+    {
+        // 衝突データ初期化
+        _datas = new CollisionData(kind_num);
+    }
+
     // Update is called once per frame
     void Update()
     {
-
+        var a = 2;
     }
 }

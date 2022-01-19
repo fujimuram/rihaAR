@@ -12,6 +12,17 @@ public class Target : MonoBehaviour
     float _vz;
     float _del_z = 5f; // 物体を削除する距離
 
+    /// <summary>
+    /// ターゲットID
+    /// 現在はカラー選択時のランダム値をidにしている
+    /// </summary>
+    public int Id { get; set; }
+
+    /// <summary>
+    /// どの方向からのデータであるか
+    /// </summary>
+    public Direction Direction { get; set; }
+
 
     void Awake()
     {

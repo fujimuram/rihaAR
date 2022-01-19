@@ -23,6 +23,11 @@ public class Player : MonoBehaviour
     [field: SerializeField]
     public float Speed { get; private set; } = 0.01f;
 
+    /// <summary>
+    /// シーン制御（適当実装）
+    /// </summary>
+    [SerializeField] SceneController _scene;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +71,10 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Hit");
             this.Damage();
+
+            // 衝突データをカウント
+            var target = other.GetComponent<Target>();
+            _scene.CollisionDatas.CountHit(target.Id, target.Direction);
         }
     }
 

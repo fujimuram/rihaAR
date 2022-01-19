@@ -367,6 +367,7 @@ MonoBehaviour:
   _target: {fileID: 1371375972}
   _sensorA: {fileID: 1129057379}
   _settings: {fileID: 1981522840}
+  _scene: {fileID: 644640082}
 --- !u!1 &118343568
 GameObject:
   m_ObjectHideFlags: 0
@@ -3119,6 +3120,7 @@ MonoBehaviour:
   _img: {fileID: 481780386}
   <IsForceForward>k__BackingField: 0
   <Speed>k__BackingField: 0.01
+  _scene: {fileID: 644640082}
 --- !u!65 &1472536874
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3938,6 +3940,7 @@ MonoBehaviour:
   <MinOrbitDegree>k__BackingField: -45
   <MaxOrbitDegree>k__BackingField: 45
   <IsOverwrite>k__BackingField: 1
+  _scene: {fileID: 644640082}
 --- !u!1 &2057568921
 GameObject:
   m_ObjectHideFlags: 0
