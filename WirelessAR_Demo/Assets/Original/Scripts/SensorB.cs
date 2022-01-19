@@ -102,15 +102,19 @@ public class SensorB : MonoBehaviour
                 _next_pos.z += this.Distance + 1;
                 this.transform.localPosition = _next_pos;
                 _sensorA.Move(this.Distance);
+
         
                 // ターゲットを有効化
                 _target.SetActive(true);
-                _target.GetComponent<Target>().SetColor(color.Value);
+
+                // ターゲットの設定
+                var target = _target.GetComponent<Target>();
+                target.SetColor(color.Value);
+                target.Id = color_id;
+                target.Direction = angle <= 0 ? Direction.Left : Direction.Right;
 
                 // 出現情報を格納
-                _scene.CollisionDatas.CountAppear(
-                    color_id,
-                    angle <= 0 ? Direction.Left : Direction.Right);
+                _scene.CollisionDatas.CountAppear(target.Id, target.Direction);
             }
         }
     }

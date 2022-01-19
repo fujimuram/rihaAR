@@ -22,17 +22,19 @@ public class HitData
     /// <summary>
     /// 出現回数
     /// </summary>
-    public uint Appeared { get; set; }
+    public uint Appeared { get; set; } = 0;
 
     /// <summary>
     /// 衝突回数
     /// </summary>
-    public uint Collided { get; set; }
+    public uint Collided { get; set; } = 0;
 
     /// <summary>
     /// 回避回数
     /// </summary>
     public uint Avoided { get => this.Appeared - this.Collided; }
+
+    public HitData() { }
 
     public HitData(uint appear, uint collision)
     {
@@ -57,6 +59,10 @@ public class CollisionData
     public CollisionData(int kind_num)
     {
         _data = new List<(HitData, HitData)>(kind_num);
+
+        // データ追加
+        for (int i = 0; i < kind_num; ++i)
+            _data.Add((new HitData(), new HitData()));
     }
 
     /// <summary>
