@@ -2203,6 +2203,7 @@ MonoBehaviour:
   _settings: {fileID: 1981522840}
   _msg_box: {fileID: 812647510}
   _target: {fileID: 1371375972}
+  <IsFin>k__BackingField: 0
 --- !u!1 &1141816424
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,7 +3438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610171613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.267, y: 0, z: 0.6}
+  m_LocalPosition: {x: -1.267, y: -0.3, z: 0.6}
   m_LocalScale: {x: 0.1, y: 0.5, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4077,8 +4078,8 @@ MonoBehaviour:
       Value: 1
   <OrbitDegree>k__BackingField: 0
   <IsRandom>k__BackingField: 1
-  <MinOrbitDegree>k__BackingField: -45
-  <MaxOrbitDegree>k__BackingField: 45
+  <MinOrbitDegree>k__BackingField: -40
+  <MaxOrbitDegree>k__BackingField: 40
   <IsOverwrite>k__BackingField: 1
   _scene: {fileID: 644640082}
 --- !u!1 &2057568921
