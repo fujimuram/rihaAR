@@ -52,7 +52,7 @@ public class SensorB : MonoBehaviour
         (1, 0, 30),
         (1, 1, -20),
         (0, 1, 20),
-        (0, 0, 0),
+        (0, 0, 30),
         (0, 1, 0),
         (1, 0, -10),
         (1, 1, 10),  
@@ -157,7 +157,7 @@ public class SensorB : MonoBehaviour
                 // ターゲットの設定（評価実験用）
                 var target = sel_target.GetComponent<Target>();
                 target.SetColor(color.Value);
-                target.Id = _objs[_loop].color_id;
+                target.Id = _objs[_loop].id * _targets.Count + _objs[_loop].color_id;
                 target.Direction = angle <= 0 ? Direction.Left : Direction.Right;
 
                 // 出現情報を格納
