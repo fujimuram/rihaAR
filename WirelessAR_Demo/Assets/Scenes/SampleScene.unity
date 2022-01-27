@@ -364,7 +364,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ace5f55123ad9043a462e8f0ca25856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 1371375972}
+  _targets:
+  - {fileID: 1371375972}
+  - {fileID: 1610171613}
   _sensorA: {fileID: 1129057379}
   _settings: {fileID: 1981522840}
   _scene: {fileID: 644640082}
@@ -1214,7 +1216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef795650854620a44921e8024d3f18de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 1371375972}
+  _targets:
+  - {fileID: 1371375972}
+  - {fileID: 1610171613}
 --- !u!4 &644640083
 Transform:
   m_ObjectHideFlags: 0
@@ -2202,7 +2206,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings: {fileID: 1981522840}
   _msg_box: {fileID: 812647510}
-  _target: {fileID: 1371375972}
+  _targets:
+  - {fileID: 1371375972}
+  - {fileID: 1610171613}
   <IsFin>k__BackingField: 0
 --- !u!1 &1141816424
 GameObject:
@@ -3026,6 +3032,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1082135366421468, guid: e13ee7e0790c7d243b7aa67fe604acac, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175467483869550, guid: e13ee7e0790c7d243b7aa67fe604acac, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1352114948813630, guid: e13ee7e0790c7d243b7aa67fe604acac, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3045,6 +3059,10 @@ PrefabInstance:
     - target: {fileID: 1603769914748404, guid: e13ee7e0790c7d243b7aa67fe604acac, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721814514466412, guid: e13ee7e0790c7d243b7aa67fe604acac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4309805032874704, guid: e13ee7e0790c7d243b7aa67fe604acac, type: 3}
       propertyPath: m_RootOrder
@@ -3340,7 +3358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1610171614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4078,8 +4096,8 @@ MonoBehaviour:
       Value: 1
   <OrbitDegree>k__BackingField: 0
   <IsRandom>k__BackingField: 1
-  <MinOrbitDegree>k__BackingField: -40
-  <MaxOrbitDegree>k__BackingField: 40
+  <MinOrbitDegree>k__BackingField: -45
+  <MaxOrbitDegree>k__BackingField: 45
   <IsOverwrite>k__BackingField: 1
   _scene: {fileID: 644640082}
 --- !u!1 &2057568921

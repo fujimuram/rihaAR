@@ -20,7 +20,7 @@ public class SensorA : MonoBehaviour
 
     [SerializeField] DemoSettings _settings;
     [SerializeField] GameObject _msg_box;
-    [SerializeField] GameObject _target;
+    [SerializeField] List<GameObject> _targets;
     
     Vector3 _init_pos;
     Vector3 _next_pos;
@@ -63,7 +63,8 @@ public class SensorA : MonoBehaviour
             }
             else
             {
-                _target.SetActive(false);
+                foreach (var target in _targets)
+                    target.SetActive(false);
 
                 // 歩行開始とみなす
                 this.IsWalking = true;

@@ -7,7 +7,7 @@ public class SensorB : MonoBehaviour
     /// <summary>
     /// 表示する障害物
     /// </summary>
-    [SerializeField] GameObject _target;
+    [SerializeField] List<GameObject> _targets;
 
     /// <summary>
     /// 前方センサー
@@ -38,12 +38,48 @@ public class SensorB : MonoBehaviour
     // 重み（？多分）
     float _mag = 1.0f;
 
+    // 評価実験用
+    int _loop = 0;
+    Dictionary<int, Color> color_tbl = new Dictionary<int, Color>()
+    {
+        {0, Color.red},
+        {1, Color.blue},
+    };
+    List<(int id, int color_id, int angle)> _objs1 = new List<(int, int, int)>()
+    {
+        // id, 色, 角度, 
+        (0, 0, -30),
+        (1, 0, 30),
+        (1, 1, -20),
+        (0, 1, 20),
+        (0, 0, 0),
+        (0, 1, 0),
+        (1, 0, -10),
+        (1, 1, 10),  
+    };
+    List<(int id, int color_id, int angle)> _objs2 = new List<(int, int, int)>()
+    {
+        // id, 色, 角度, 
+        (0, 0, -30),
+        (0, 1, 30),
+        (0, 1, -20),
+    };
+    // 使用オブジェクト群
+    List<(int id, int color_id, int angle)> _objs;
+
+
     // Start is called before the first frame update
     void Start()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
         _init_pos = this.transform.localPosition;
         _next_pos = _init_pos;
+
+        // ターゲット数を設定
+        _scene.SetTargetNum(_targets.Count * _settings.Colors.GetTable().Count);
+
+        // 使用オブジェクト群
+        _objs = _objs1;
     }
 
     void OnTriggerExit(Collider other)
@@ -65,6 +101,8 @@ public class SensorB : MonoBehaviour
                 {
                     angle = _settings.OrbitDegree;
                 }
+                // 評価実験用
+                angle = _objs[_loop].angle;
 
                 // 色
                 // NOTE: 煩雑なのでいつか書き換え
@@ -83,6 +121,8 @@ public class SensorB : MonoBehaviour
                             color = pair.Key;
                     }
                 }
+                // 評価実験用
+                color = color_tbl[_objs[_loop].color_id];
 
                 // 距離
                 // MEMO: センサーBから1~2mの位置にランダムで
@@ -105,16 +145,26 @@ public class SensorB : MonoBehaviour
 
         
                 // ターゲットを有効化
-                _target.SetActive(true);
+                var sel_target = _targets[_objs[_loop].id];
+                sel_target.SetActive(true);
 
                 // ターゲットの設定
-                var target = _target.GetComponent<Target>();
+                // var target = sel_target.GetComponent<Target>();
+                // target.SetColor(color.Value);
+                // target.Id = color_id;
+                // target.Direction = angle <= 0 ? Direction.Left : Direction.Right;
+
+                // ターゲットの設定（評価実験用）
+                var target = sel_target.GetComponent<Target>();
                 target.SetColor(color.Value);
-                target.Id = color_id;
+                target.Id = _objs[_loop].color_id;
                 target.Direction = angle <= 0 ? Direction.Left : Direction.Right;
 
                 // 出現情報を格納
                 _scene.CollisionDatas.CountAppear(target.Id, target.Direction);
+
+                if (++_loop >= _objs.Count)
+                    _loop = 0;
             }
         }
     }
