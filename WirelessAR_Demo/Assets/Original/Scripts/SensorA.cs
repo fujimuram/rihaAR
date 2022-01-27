@@ -20,11 +20,13 @@ public class SensorA : MonoBehaviour
 
     [SerializeField] DemoSettings _settings;
     [SerializeField] GameObject _msg_box;
-    [SerializeField] GameObject _target;
+    [SerializeField] List<GameObject> _targets;
     
     Vector3 _init_pos;
     Vector3 _next_pos;
-    bool _fin;
+
+    [field: SerializeField]
+    public bool IsFin { get; private set; } = false;
 
     // Start is called before the first frame update
     void Start()
@@ -49,18 +51,20 @@ public class SensorA : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             // 総歩行距離歩いたか
-            if (this.transform.localPosition.z > _settings.Distdata)
+            if (this.transform.localPosition.z > _settings.Distdata ||
+                this.IsFin)
             {
-                if (!_fin)
-                {
+                // if (!)
+                // {
                     // メッセージボックスを正面に表示し終了
                     _msg_box.SetActive(true);
-                    _fin = true;
-                }
+                    this.IsFin = true;
+                // }
             }
             else
             {
-                _target.SetActive(false);
+                foreach (var target in _targets)
+                    target.SetActive(false);
 
                 // 歩行開始とみなす
                 this.IsWalking = true;

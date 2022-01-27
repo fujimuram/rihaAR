@@ -147,9 +147,6 @@ public class DemoSettings : MonoBehaviour
     {
         // MEMO: 初期化時にセッター機能しないためあらためて初期化
         this.Distance = this.Distance;
-
-        // ターゲット数を設定
-        _scene.SetTargetNum(this.Colors.GetTable().Count);
     }
 
     // Update is called once per frame
